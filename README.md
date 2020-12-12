@@ -1,70 +1,37 @@
-# Getting Started with Create React App
+# AJAX
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+In this activity we will create a simple React application with which users can query the OMDB API and display information about the movie searched for.
 
-## Available Scripts
+## Instructions
 
-In the project directory, you can run:
+* Replace your React application's `src` folder with [Unsolved/src](Unsolved/src). 
 
-### `yarn start`
+* This activity uses Bootstrap, so make sure you `import 'bootstrap/dist/css/bootstrap.min.css';` in `index.js`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* Be sure to install the axios library by running `npm install axios` in your terminal.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* Stop the dev server if it is already running. Start the app in dev mode by running `npm start`.
 
-### `yarn test`
+* Open your browser to [localhost:3000](http://localhost:3000) and study the rendered application.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* This application is supposed to allow users to search for the name of a movie via the form on the right of the page, and display information from the OMDB API on the left side. Currently the application isn't fully functional.
 
-### `yarn build`
+* Open the `src/OmdbContainer.js` and add the following code:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  * Add a `componentDidMount` method which should utilize the `API.js` module to query the OMDB API for the movie "The Matrix" when the component mounts. Then update this component's `result` state with the result of the AJAX request. You can verify you completed this step correctly by refreshing the page in your web browser. If successful, the application should display information about the movie "The Matrix" when the page first loads.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+  * Add a `handleInputChange` method which should be called whenever the user types into the input field. Inside of this method, set `this.state.search` equal to the new value of the input field. You can verify you've completed this step correctly if you can now type into the input field.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  * Add a `handleFormSubmit` method which should be called when the form is submitted. Inside of this method, utilize the `API` module to search the OMDB API for the value of `this.state.search`. Then update this component's `result` state with the result. You can verify you completed this step correctly by searching for the name of a movie. If successful, you should see the movie poster and some information about the movie appear in the left card.
 
-### `yarn eject`
+### Bonus
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* After you get the rest of the application code working, add code so that if no movie results are found, a message is displayed indicating this in place of the `MovieDetail` component. Otherwise display the `MovieDetail` component. You can verify you completed this step correctly by searching for an empty string. If successful, you should see your message being displayed instead of any movie information.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Hints
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* Don't forget to call `event.preventDefault()` inside of any event handlers called in response to an HTML form being submitted.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* The only code you need to modify is inside of `OmdbContainer.js`.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* If you make it to the bonus, check out [React's Documentation on Conditional Rendering](https://facebook.github.io/react/docs/conditional-rendering.html). Use any of the techniques described to complete the bonus.
