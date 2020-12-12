@@ -1,3 +1,9 @@
+# React app steps
+1) npx create-react-app
+2) cd into project
+3) set up src folder components and js files
+4) public/index.html <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"/>
+5) npm install react-bootstrap bootstrap 
 # AJAX
 
 In this activity we will create a simple React application with which users can query the OMDB API and display information about the movie searched for.
